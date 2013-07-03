@@ -11,14 +11,17 @@ To add and prep
   git clone https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git ./ && npm install && bower install
 ```
 To test it works
+```zsh  
   grunt server
-  
+```
 To test
+```zsh  
   grunt test
-  
+```
 To publish
+```zsh  
   grunt build
-  
+```
   
 Notes 
 =====
