@@ -7,8 +7,9 @@ live reloads of template edits and sub folder template support.
 Get Yeoman installed along with grunt-cli and bower first
 
 To add and prep
+```zsh  
   git clone https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git ./ && npm install && bower install
-
+```
 To test it works
   grunt server
   
