@@ -1,10 +1,10 @@
-yo-backbone-handlebars-personalsetup
+yo-grunt-bower-backbone-handlebars-foundation
 ====================================
 
-Seperate branch using foundation standalone instead of twitter bootstrap
+Yeoman boiler plate started this off, from there, i've made minor changes to suit personal preferences and
+made this snapshot to help me get new projects off the ground quicker.
 
-My personal version of the yeoman backbone generated project which also supports shorter template names, 
-live reloads of template edits and sub folder template support.
+NOTE : This is a new branch purely for those projects we use foundation for instead of bootstrap.
 
 Get Yeoman installed along with grunt-cli and bower first
 
