@@ -4,7 +4,7 @@ yo-grunt-bower-backbone-handlebars-bootstrap
 Yeoman boiler plate started this off, from there, i've made minor changes to suit personal preferences and
 made this snapshot to help me get new projects off the ground quicker.
 
-NOTE : This is a new branch purely for those projects we use foundation for instead of bootstrap.
+NOTE : This is a the master branch purely for those projects we use foundation for instead of bootstrap.
 
 Get Yeoman installed along with grunt-cli and bower first
 
