@@ -1,6 +1,8 @@
 yo-backbone-handlebars-personalsetup
 ====================================
 
+Seperate branch using foundation standalone instead of twitter bootstrap
+
 My personal version of the yeoman backbone generated project which also supports shorter template names, 
 live reloads of template edits and sub folder template support.
 
