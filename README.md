@@ -10,7 +10,7 @@ Get Yeoman installed along with grunt-cli and bower first
 
 To add and prep
 ```zsh  
-  git clone -b foundation https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git NewFolderHere && npm install && bower install
+  git clone -b foundation https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git "./." && npm install && bower install
 ```
 To test it works
 ```zsh  
