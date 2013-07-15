@@ -120,11 +120,21 @@ module.exports = function (grunt) {
                 'test/spec/**/*.js'
             ]
         },
-        mocha: {
+        jasmine: {
             all: {
+		src:'.tmp/scripts/**/*.js',
                 options: {
                     run: true,
-                    urls: ['http://localhost:<%= connect.options.port %>/index.html']
+                    keepRunner:true,
+		    vendor:[
+			'test/bower_components/jquery/jquery.js',
+			'test/bower_components/underscore/underscore.js',
+			'test/bower_components/backbone/backbone.js',
+			'test/bower_components/handlebars/handlebars.js'
+		    ],
+		    
+                    specs: 'test/spec/**/*.js',
+        	    //helpers: './test/helper/**/*.js',
                 }
             }
         },
@@ -305,9 +315,9 @@ module.exports = function (grunt) {
         'createDefaultTemplate',
         'handlebars',
         'neuter:app',
-        'compass',
+        //'compass',
         'connect:test',
-        'mocha'
+        'jasmine'
     ]);
 
     grunt.registerTask('build', [
