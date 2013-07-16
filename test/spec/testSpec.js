@@ -30,5 +30,13 @@
 
             });
         });
+
+        describe('#appwrap is visible', function () {
+            it('#appwrap exists and is a div', function () {
+                //console.log("appWrap DOM : "+$('#appwrap').html());
+                expect($('#appwrap')).toBeVisible();
+
+            });
+        });
     });
 })();
