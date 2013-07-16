@@ -131,12 +131,16 @@ module.exports = function (grunt) {
             			'test/bower_components/jquery/jquery.js',
             			'test/bower_components/underscore/underscore.js',
             			'test/bower_components/backbone/backbone.js',
-            			'test/bower_components/handlebars/handlebars.js'
+            			'test/bower_components/handlebars/handlebars.js',
+                        'app/vendors/foundation/foundation.js',
+                        'app/vendors/foundation/foundation.*.js',
+            			'test/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
+
         		    ],
         		    styles: '.tmp/styles/main.css',
                     specs: 'test/spec/**/*.js',
-            	    //helpers: './test/helper/**/*.js',
-                        
+            	    helpers: './test/helper/**/*.js',
+                    template:"test/AppRunner.tmpl",
                     outfile:'test/index.html'
                     }
                 }

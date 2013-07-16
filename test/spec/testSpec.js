@@ -22,5 +22,13 @@
                 expect(myApp.classes).toBeDefined();
             });
         });
+
+        describe('in the DOM', function () {
+            it('#appwrap exists and is a div', function () {
+                //console.log("appWrap DOM : "+$('#appwrap').html());
+                expect($('#appwrap')).toBe('div');
+
+            });
+        });
     });
 })();
