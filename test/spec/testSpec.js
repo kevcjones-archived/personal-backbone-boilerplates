@@ -10,3 +10,17 @@
         });
     });
 })();
+
+
+(function () {
+    describe('My Application', function () {
+        describe('data structure layout', function () {
+            it('should be defined', function () {
+                expect(myApp).toBeDefined();
+            });
+             it('should be have a classes child', function () {
+                expect(myApp.classes).toBeDefined();
+            });
+        });
+    });
+})();

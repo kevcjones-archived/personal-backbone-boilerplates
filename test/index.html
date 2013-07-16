@@ -1,38 +1,39 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Jasmine Spec Runner</title>
-        <link rel="stylesheet" href="bower_components/jasmine/lib/jasmine-core/jasmine.css">
-    </head>
-    <body>
-        <script src="bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
-        <script src="bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner</title>
 
-        <!-- include source files here... -->
+  <link rel="stylesheet" type="text/css" href="../.grunt/grunt-contrib-jasmine/jasmine.css">
 
-        <!-- include spec files here... -->
-        <script src="spec/testSpec.js"></script>
+  <link rel="stylesheet" type="text/css" href="../.tmp/styles/main.css">
 
-        <script>
-            (function() {
-                var jasmineEnv = jasmine.getEnv();
-                jasmineEnv.updateInterval = 1000;
-                var htmlReporter = new jasmine.HtmlReporter();
-                jasmineEnv.addReporter(htmlReporter);
-                jasmineEnv.specFilter = function(spec) {
-                    return htmlReporter.specFilter(spec);
-                };
-                var currentWindowOnload = window.onload;
-                window.onload = function() {
-                    if (currentWindowOnload) {
-                        currentWindowOnload();
-                    }
-                    execJasmine();
-                };
-                function execJasmine() {
-                    jasmineEnv.execute();
-                }
-            })();
-        </script>
-    </body>
+
+  
+  <script src="../.grunt/grunt-contrib-jasmine/phantom-polyfill.js"></script>
+  
+  <script src="../.grunt/grunt-contrib-jasmine/jasmine.js"></script>
+  
+  <script src="../.grunt/grunt-contrib-jasmine/jasmine-html.js"></script>
+  
+  <script src="bower_components/jquery/jquery.js"></script>
+  
+  <script src="bower_components/underscore/underscore.js"></script>
+  
+  <script src="bower_components/backbone/backbone.js"></script>
+  
+  <script src="bower_components/handlebars/handlebars.js"></script>
+  
+  <script src="../.tmp/scripts/combined-scripts.js"></script>
+  
+  <script src="spec/testSpec.js"></script>
+  
+  <script src="../.grunt/grunt-contrib-jasmine/reporter.js"></script>
+  
+  <script src="../.grunt/grunt-contrib-jasmine/jasmine-helper.js"></script>
+  
+
+</head>
+<body>
+</body>
 </html>

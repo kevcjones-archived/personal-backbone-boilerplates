@@ -120,23 +120,26 @@ module.exports = function (grunt) {
                 'test/spec/**/*.js'
             ]
         },
-        jasmine: {
+        jasmine: 
+        {
             all: {
-		src:'.tmp/scripts/**/*.js',
+        		src:'.tmp/scripts/combined-scripts.js',
                 options: {
                     run: true,
                     keepRunner:true,
-		    vendor:[
-			'test/bower_components/jquery/jquery.js',
-			'test/bower_components/underscore/underscore.js',
-			'test/bower_components/backbone/backbone.js',
-			'test/bower_components/handlebars/handlebars.js'
-		    ],
-		    
+        		    vendor:[
+            			'test/bower_components/jquery/jquery.js',
+            			'test/bower_components/underscore/underscore.js',
+            			'test/bower_components/backbone/backbone.js',
+            			'test/bower_components/handlebars/handlebars.js'
+        		    ],
+        		    styles: '.tmp/styles/main.css',
                     specs: 'test/spec/**/*.js',
-        	    //helpers: './test/helper/**/*.js',
+            	    //helpers: './test/helper/**/*.js',
+                        
+                    outfile:'test/index.html'
+                    }
                 }
-            }
         },
         coffee: {
             dist: {
@@ -315,7 +318,7 @@ module.exports = function (grunt) {
         'createDefaultTemplate',
         'handlebars',
         'neuter:app',
-        //'compass',
+        'compass',
         'connect:test',
         'jasmine'
     ]);
