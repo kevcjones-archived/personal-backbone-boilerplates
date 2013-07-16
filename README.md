@@ -5,12 +5,13 @@ Yeoman boiler plate started this off, from there, i've made minor changes to sui
 made this snapshot to help me get new projects off the ground quicker.
 
 NOTE : This is a new branch purely for those projects we use foundation for instead of bootstrap.
+AND this branch has Jasmine configured ready to roll instead of Mocha
 
 Get Yeoman installed along with grunt-cli and bower first
 
 To add and prep
 ```zsh  
-  git clone -b foundation https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git "./." && npm install && bower install
+  git clone -b jasminefoundation https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git "./." && npm install && bower install
 ```
 To test it works
 ```zsh  
