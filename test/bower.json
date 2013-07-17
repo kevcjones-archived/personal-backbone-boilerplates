@@ -7,7 +7,8 @@
     "underscore": "~1.4.3",
     "backbone": "~1.0.0",
     "modernizr": "~2.6.2",
-    "handlebars":"~1.0.0"
+    "handlebars":"~1.0.0",
+    "jasmine-jquery" : "~1.5.3"
   },
   "devDependencies": {}
 }
