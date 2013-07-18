@@ -31,8 +31,9 @@ JasmineCasper - https://github.com/KevCJones/yo-backbone-handlebars-personalsetu
 
 
 
-Master Branch Setup (visit other branches for specific setups
-=============================================================
+Master Branch Setup 
+====================
+(NOTE - visit other branches for branch specific setups)
 
 Follow Yeoman.io's setup first for the Yeoman, Bower, Grunt Stack. Also be sure you have installed Compass (using the compass gem) and for later branches the CasperJS (via brew i recommend)
 
