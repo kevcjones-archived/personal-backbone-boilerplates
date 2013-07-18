@@ -1,7 +1,7 @@
 Backbone Snapshots
 ====================================
 
-Getting a little complicateed now to manage so i'm going to use the root readme to explain a little better.
+Getting a little complicateed now to manage so i'm going to use the opening part of the readme to explain a little better.
 
 Originally i've used yeoman to get my boilerplate code up and running and since then, i've been adding/changin things
 sometimes because of bugs being ironed out by other 3rd parties as things change quickly and sometimes because the
