@@ -118,7 +118,8 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*'],
-            server: '.tmp'
+            server: '.tmp',
+            casperjs:['.tmp','test/casperjs/screenshots/*']
         },
         jshint: {
             options: {
@@ -345,7 +346,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('test-casperjs', [
-        'clean:server',
+        'clean:casperjs',
         'coffee',
         'createDefaultTemplate',
         'handlebars',
