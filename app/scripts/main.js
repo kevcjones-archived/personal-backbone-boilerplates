@@ -44,15 +44,15 @@ window.myApp = new (Backbone.View.extend({
     events:{
         'click a[data-internal]' : function(e) {
             e.preventDefault();
-            Backbone.history.navigate(e.target.pathname, {trigger: true});
+            Backbone.history.navigate(e.currentTarget.pathname, {trigger: true});
         },
 
         'click a[data-confirm]' : function(e) {
             e.preventDefault();
-            if(confirm("You are going to "+e.target+" - Are you sure?"))
+            if(confirm("You are going to "+e.currentTarget+" - Are you sure?"))
             {
                 //save anything here
-                window.open(e.target,"_blank");
+                window.open(e.currentTarget,"_blank");
             }
         }
 
