@@ -14,7 +14,6 @@ Master branch tech cocktail :
 - Yeoman + Grunt + Bower generating the Backbone Generator
 - Handlebars templating
 - Mocha + Chai + PhantomJS
-- Grunt
 - Twitter Bootstrap for styling with Compass/SCSS configured
  
 
