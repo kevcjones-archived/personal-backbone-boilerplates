@@ -1,19 +1,56 @@
-yo-grunt-bower-backbone-handlebars-foundation
+Backbone Snapshots
 ====================================
 
-Yeoman boiler plate started this off, from there, i've made minor changes to suit personal preferences and
-made this snapshot to help me get new projects off the ground quicker.
+Getting a little complicateed now to manage so i'm going to use the root readme to explain a little better.
 
-NOTE : This is a new branch purely for those projects we use foundation for instead of bootstrap.
-AND this branch has Jasmine configured ready to roll instead of Mocha
+Originally i've used yeoman to get my boilerplate code up and running and since then, i've been adding/changin things
+sometimes because of bugs being ironed out by other 3rd parties as things change quickly and sometimes because the
+cocktail of tech i want isn't quite out there as i want it...
 
-Get Yeoman installed along with grunt-cli and bower first
+As i update each branch i'll add a new link here now with what makes it different from the original master branch.
+
+Master branch tech cocktail :
+
+- Yeoman + Grunt + Bower generating the Backbone Generator
+- Handlebars templating
+- Mocha + Chai + PhantomJS
+- Twitter Bootstrap for styling with Compass/SCSS configured
+ 
+
+Branches
+========
+
+Foundation - https://github.com/KevCJones/yo-backbone-handlebars-personalsetup/tree/foundation
+- Removed Bootstrap , added Foundation (Compass standalone version)
+ 
+JasmineFoundation - https://github.com/KevCJones/yo-backbone-handlebars-personalsetup/tree/jasminefoundation
+- Removed Mocha+Chai , added Jasmine for testing
+
+JasmineCasper - https://github.com/KevCJones/yo-backbone-handlebars-personalsetup/tree/jasminecasper
+- Added support for Casper JS as well as Jasmine. Casper JS has better screen shot and navigation testing from what i've played with so far.
+
+
+
+Setup
+=============
+
+Follow Yeoman.io's setup first for the Yeoman, Bower, Grunt Stack. Also be sure you have installed Compass (using the compass gem) and for later branches the CasperJS (via brew i recommend)
 
 To add and prep
 ```zsh  
-  git clone -b jasminefoundation https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git "./." && npm install && bower install
+  git clone https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git - branchnamehere './.' && npm install && bower install
 ```
-To test it works
+To make sure you have installed the bower modules inside test as well
+
+```zsh  
+  cd test && bower install && cd ..
+```
+OR (after Casper Branch)
+
+```zsh  
+  cd test/jasmine && bower install  && cd .. && cd ..
+```
+To test it runs
 ```zsh  
   grunt server
 ```
@@ -21,14 +58,18 @@ To test
 ```zsh  
   grunt test
 ```
+OR if using CasperJS branches 
+
+Jasmine tests
+```zsh  
+  grunt test-jasmine
+```
+```zsh  
+  grunt test-casperjs
+```
+
+
 To publish
 ```zsh  
   grunt build
 ```
-  
-Notes 
-=====
-
-- The handlebars generator didn't hook 100% for me so i finished it off, probably will be fixed later
-- The live editing of a template didn't seem to update, added neuter to the tasks on the watch, seemed to fix
-- The handlebars templates full path was used as the compiled template key, i didn't like this so i made it a sub directory of the templates root folder and removed the extension too
