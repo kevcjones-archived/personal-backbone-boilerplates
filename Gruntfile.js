@@ -30,7 +30,7 @@ module.exports = function (grunt) {
                 livereload: true
             },
             coffeeTest: {
-                files: ['test/spec/**/*.coffee'],
+                files: ['test/jasmine/spec/**/*.coffee'],
                 tasks: ['coffee:test']
             },
             compass: {
@@ -79,12 +79,23 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            test: {
+            jasmine: {
                 options: {
                     middleware: function (connect) {
                         return [
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test'),
+                            mountFolder(connect, 'test/jasmine'),
+                            mountFolder(connect, yeomanConfig.app)
+                        ];
+                    }
+                }
+            },
+            casperjs: {
+                options: {
+                    middleware: function (connect) {
+                        return [
+                            mountFolder(connect, '.tmp'),
+                            mountFolder(connect, 'test/casperjs'),
                             mountFolder(connect, yeomanConfig.app)
                         ];
                     }
@@ -117,7 +128,7 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/**/*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
-                'test/spec/**/*.js'
+                'test/jasmine/spec/**/*.js'
             ]
         },
         jasmine: 
@@ -128,22 +139,28 @@ module.exports = function (grunt) {
                     run: true,
                     keepRunner:true,
         		    vendor:[
-            			'test/bower_components/jquery/jquery.js',
-            			'test/bower_components/underscore/underscore.js',
-            			'test/bower_components/backbone/backbone.js',
-            			'test/bower_components/handlebars/handlebars.js',
+            			'test/jasmine/bower_components/jquery/jquery.js',
+            			'test/jasmine/bower_components/underscore/underscore.js',
+            			'test/jasmine/bower_components/backbone/backbone.js',
+            			'test/jasmine/bower_components/handlebars/handlebars.js',
                         'app/vendors/foundation/foundation.js',
                         'app/vendors/foundation/foundation.*.js',
-            			'test/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
+            			'test/jasmine/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
 
         		    ],
         		    styles: '.tmp/styles/main.css',
-                    specs: 'test/spec/**/*.js',
-            	    helpers: './test/helper/**/*.js',
-                    template:"test/AppRunner.tmpl",
-                    outfile:'test/index.html'
+                    specs: 'test/jasmine/spec/**/*.js',
+            	    helpers: './test/jasmine/helper/**/*.js',
+                    template:"test/jasmine/AppRunner.tmpl",
+                    outfile:'test/jasmine/index.html'
                     }
                 }
+        },
+        casperjs: {
+            options: {
+              // Task-specific options go here.
+            },
+            files: ['test/casperjs/**/*.js']
         },
         coffee: {
             dist: {
@@ -162,7 +179,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '.tmp/spec',
                     src: '*.coffee',
-                    dest: 'test/spec'
+                    dest: 'test/jasmine/spec'
                 }]
             }
         },
@@ -316,15 +333,26 @@ module.exports = function (grunt) {
         ]);
     });
 
-    grunt.registerTask('test', [
+    grunt.registerTask('test-jasmine', [
         'clean:server',
         'coffee',
         'createDefaultTemplate',
         'handlebars',
         'neuter:app',
         'compass',
-        'connect:test',
+        'connect:jasmine',
         'jasmine'
+    ]);
+
+    grunt.registerTask('test-casperjs', [
+        'clean:server',
+        'coffee',
+        'createDefaultTemplate',
+        'handlebars',
+        'neuter:app',
+        'compass',
+        'connect:casperjs',
+        'casperjs'
     ]);
 
     grunt.registerTask('build', [
