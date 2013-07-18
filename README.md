@@ -31,21 +31,16 @@ JasmineCasper - https://github.com/KevCJones/yo-backbone-handlebars-personalsetu
 
 
 
-Setup
-=============
+CasperFoundation Setup
+======================
 
 Follow Yeoman.io's setup first for the Yeoman, Bower, Grunt Stack. Also be sure you have installed Compass (using the compass gem) and for later branches the CasperJS (via brew i recommend)
 
 To add and prep
 ```zsh  
-  git clone https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git - branchnamehere './.' && npm install && bower install
+  git clone -b jasminecasper https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git './.' && npm install && bower install
 ```
 To make sure you have installed the bower modules inside test as well
-
-```zsh  
-  cd test && bower install && cd ..
-```
-OR (after Casper Branch)
 
 ```zsh  
   cd test/jasmine && bower install  && cd .. && cd ..
@@ -55,15 +50,12 @@ To test it runs
   grunt server
 ```
 To test
-```zsh  
-  grunt test
-```
-OR if using CasperJS branches 
 
 Jasmine tests
 ```zsh  
   grunt test-jasmine
 ```
+Casper tests
 ```zsh  
   grunt test-casperjs
 ```
