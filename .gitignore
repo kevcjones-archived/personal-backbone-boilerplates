@@ -4,6 +4,6 @@ test/temp
 .sass-cache
 app/bower_components
 .tmp
-test/bower_components/
+test/jasmine/bower_components
 .idea
 .grunt

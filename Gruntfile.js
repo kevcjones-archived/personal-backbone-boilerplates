@@ -144,8 +144,8 @@ module.exports = function (grunt) {
             			'test/jasmine/bower_components/underscore/underscore.js',
             			'test/jasmine/bower_components/backbone/backbone.js',
             			'test/jasmine/bower_components/handlebars/handlebars.js',
-                        'app/vendors/foundation/foundation.js',
-                        'app/vendors/foundation/foundation.*.js',
+                        'test/jasmine/bower_components/foundation/js/foundation/foundation.js',
+                        'test/jasmine/bower_components/foundation/js/foundation/foundation.*.js',
             			'test/jasmine/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
 
         		    ],
