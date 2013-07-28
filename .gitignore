@@ -7,3 +7,4 @@ app/bower_components
 test/jasmine/bower_components
 .idea
 .grunt
+test/casperjs/screenshots
