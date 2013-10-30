@@ -8,3 +8,4 @@ test/jasmine/bower_components
 .idea
 .grunt
 test/casperjs/screenshots
+.DS_Store
