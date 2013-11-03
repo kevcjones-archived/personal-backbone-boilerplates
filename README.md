@@ -32,7 +32,7 @@ BackboneReact -
 - I removed Foundation, killed the Backbone view system to try out ReactJS. This is all in a build step automatically.
 
 
-JasmineCasper Setup
+ Setup
 ======================
 
 Follow Yeoman.io's setup first for the Yeoman, Bower, Grunt Stack. Also be sure you have installed Compass (using the compass gem) and for later branches the CasperJS (via brew i recommend)
