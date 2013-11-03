@@ -11,7 +11,6 @@ As i update each branch i'll add a new link here now with what makes it differen
 
 Master branch tech cocktail :
 
-- Yeoman + Grunt + Bower generating the Backbone Generator
 - Handlebars templating
 - Mocha + Chai + PhantomJS
 - Twitter Bootstrap for styling with Compass/SCSS configured
@@ -20,15 +19,17 @@ Master branch tech cocktail :
 Branches
 ========
 
-Foundation - https://github.com/KevCJones/yo-backbone-handlebars-personalsetup/tree/foundation
+Foundation - 
 - Removed Bootstrap , added Foundation (Compass standalone version)
  
-JasmineFoundation - https://github.com/KevCJones/yo-backbone-handlebars-personalsetup/tree/jasminefoundation
+JasmineFoundation - 
 - Removed Mocha+Chai , added Jasmine for testing
 
-JasmineCasper - https://github.com/KevCJones/yo-backbone-handlebars-personalsetup/tree/jasminecasper
+JasmineCasper - 
 - Added support for Casper JS as well as Jasmine. Casper JS has better screen shot and navigation testing from what i've played with so far.
 
+ReactBacbone -
+- I removed Foundation, killed the Backbone view system to try out ReactJS. This is all in a build step automatically.
 
 
 JasmineCasper Setup
