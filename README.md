@@ -28,7 +28,7 @@ JasmineFoundation -
 JasmineCasper - 
 - Added support for Casper JS as well as Jasmine. Casper JS has better screen shot and navigation testing from what i've played with so far.
 
-ReactBackbone -
+BackboneReact -
 - I removed Foundation, killed the Backbone view system to try out ReactJS. This is all in a build step automatically.
 
 
