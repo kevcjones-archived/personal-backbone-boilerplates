@@ -39,7 +39,7 @@ Follow Yeoman.io's setup first for the Yeoman, Bower, Grunt Stack. Also be sure 
 
 To add and prep
 ```zsh  
-  git clone -b backbonereact https://github.com/KevCJones/yo-backbone-handlebars-personalsetup.git './.' && npm install && bower install
+  git clone -b backbonereact https://github.com/KevCJones/personal-backbone-boilerplates.git './.' && npm install && bower install
 ```
 To make sure you have installed the bower modules inside test as well
 
