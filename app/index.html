@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="components/ExampleComponent/ExampleComponent.css">
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
@@ -18,7 +19,7 @@
     <body>
 
         <div id="appwrap"></div>
-
+        <div id="appwrap2"></div>
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -33,36 +34,20 @@
         </script>
 
         <!-- build:js scripts/vendor.js -->
+        <script src="vendors/di-lite/di-lite.js"></script>
         <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/react/react.js"></script>
+        <script src="bower_components/lodash/dist/lodash.min.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
-        <script src="bower_components/handlebars/handlebars.js"></script>
+        <script src="bower_components/backbone.localStorage/backbone.localStorage.js"></script>
 
         <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/foundation/js/foundation/foundation.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.alerts.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.clearing.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.cookie.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.forms.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.interchange.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.joyride.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.magellan.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.orbit.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.placeholder.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.reveal.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.section.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.tooltips.js"></script>
-        <script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
 
-        <script>
-	        $(document).foundation();
-        </script>
         <!-- endbuild -->
 
-        <!-- build:js(.tmp) scripts/main.js-->
+        <!-- build:js(.tmp) scripts/app.js-->
         <script src="scripts/combined-scripts.js"></script>
         <!-- endbuild -->
 </body>

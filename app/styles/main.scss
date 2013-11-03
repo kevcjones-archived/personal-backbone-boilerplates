@@ -1,11 +1,7 @@
-// Comment out this import if you don't want to use normalize
-@import "../bower_components/foundation/scss/normalize";
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
 
-// Comment out this import if you are customizing you imports below
-@import "../bower_components/foundation/scss/foundation";
-
-//@import "foundation-icons/general_enclosed_foundicons";
-
-@import "foundation-icons/general_foundicons";
-
-@import "overrides";
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}

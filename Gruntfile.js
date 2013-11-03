@@ -29,22 +29,9 @@ module.exports = function (grunt) {
                 nospawn: true,
                 livereload: true
             },
-            coffeeTest: {
-                files: ['test/jasmine/spec/**/*.coffee'],
-                tasks: ['coffee:test']
-            },
             compass: {
-                files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
+                files: ['<%= yeoman.app %>/**/*.{scss,sass}'],
                 tasks: ['compass']
-            },
-            handlebars: {
-                options:{
-                    namespace: "JST"
-                },
-                files: [
-                    '<%= yeoman.app %>/scripts/templates/**/*.hbs'
-                ],
-                tasks: ['handlebars','neuter:app']
             },
             livereload: {
                 options: {
@@ -54,12 +41,12 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/*.html',
                     '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
-                    '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp}'                    
+                    '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp}'
                 ]
-            },            
+            },
             neuter: {
-                files: ['{.tmp,<%= yeoman.app %>}/scripts/**/*.{js,coffee}'],
-                tasks: ['coffee:dist', 'neuter']
+                files: ['{.tmp,<%= yeoman.app %>}/scripts/**/*.{js}'],
+                tasks: ['neuter']
             }
         },
         connect: {
@@ -132,7 +119,7 @@ module.exports = function (grunt) {
                 'test/jasmine/spec/**/*.js'
             ]
         },
-        jasmine: 
+        jasmine:
         {
             all: {
         		src:'.tmp/scripts/combined-scripts.js',
@@ -140,12 +127,12 @@ module.exports = function (grunt) {
                     run: true,
                     keepRunner:true,
         		    vendor:[
+                        'test/jasmine/vendors/di-lite/di-lite.js',
             			'test/jasmine/bower_components/jquery/jquery.js',
-            			'test/jasmine/bower_components/underscore/underscore.js',
+                        'test/jasmine/bower_components/react/react.js',
+            			'test/jasmine/bower_components/lodash/dist/lodash.js',
             			'test/jasmine/bower_components/backbone/backbone.js',
-            			'test/jasmine/bower_components/handlebars/handlebars.js',
-                        'test/jasmine/bower_components/foundation/js/foundation/foundation.js',
-                        'test/jasmine/bower_components/foundation/js/foundation/foundation.*.js',
+                        'test/jasmine/bower_components/backbone.localStorage/backbone.localStorage.js',
             			'test/jasmine/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
 
         		    ],
@@ -163,31 +150,10 @@ module.exports = function (grunt) {
             },
             files: ['test/casperjs/**/*.js']
         },
-        coffee: {
-            dist: {
-                files: [{
-                    // rather than compiling multiple files here you should
-                    // require them into your main .coffee file
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/scripts',
-                    src: '**/*.coffee',
-                    dest: '.tmp/scripts',
-                    ext: '.js'
-                }]
-            },
-            test: {
-                files: [{
-                    expand: true,
-                    cwd: '.tmp/spec',
-                    src: '*.coffee',
-                    dest: 'test/jasmine/spec'
-                }]
-            }
-        },
         compass: {
             options: {
-                sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
+                sassDir: '<%= yeoman.app %>',
+                cssDir: '.tmp',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
@@ -270,25 +236,14 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        bower: {
-            all: {
-                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
-            }
-        },
-        handlebars: {
-            compile: {
+        react: {
+            app: {
                 options: {
-                    namespace: 'JST',
-                    processName: function(filePath) {
-                        var _  = grunt.util._;
-                        var piecesAfterRootDirectory = _.last(filePath.split('/scripts/templates/')).split('.');
-                        var name   = _(piecesAfterRootDirectory).without(_.last(piecesAfterRootDirectory)).join('.'); // strips file extension
-
-                        return name;
-                    }
+                    extension:    'jsx',  // Default,
+                    ignoreMTime:  false // Default
                 },
                 files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/**/*.hbs']
+                    '.tmp/components': '<%= yeoman.app %>/components'
                 }
             }
         },
@@ -306,10 +261,11 @@ module.exports = function (grunt) {
         },
         neuter: {
             app: {
-                src: '<%= yeoman.app %>/scripts/main.js',
+                src: '<%= yeoman.app %>/scripts/app.js',
                 dest: '.tmp/scripts/combined-scripts.js'
             }
         }
+
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -323,9 +279,8 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'coffee:dist',
             'createDefaultTemplate',
-            'handlebars',
+            'react',
             'neuter:app',
             'compass:server',
             'connect:livereload',
@@ -336,9 +291,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test-jasmine', [
         'clean:server',
-        'coffee',
         'createDefaultTemplate',
-        'handlebars',
+        'react',
         'neuter:app',
         'compass',
         'connect:jasmine',
@@ -347,9 +301,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test-casperjs', [
         'clean:casperjs',
-        'coffee',
         'createDefaultTemplate',
-        'handlebars',
+        'react',
         'neuter:app',
         'compass',
         'connect:casperjs',
@@ -358,9 +311,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'coffee',
         'createDefaultTemplate',
-        'handlebars',
+        'react',
         'compass:dist',
         'useminPrepare',
         'neuter:app',

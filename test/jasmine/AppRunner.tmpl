@@ -14,9 +14,10 @@
 </head>
 <body>
      <div id="appwrap"></div>
+     <div id="appwrap2"></div>
 
      <% with (scripts) { %>
-       <% [].concat(helpers, src, specs, reporters, start).forEach(function(script){ %>
+       <% [].concat(src, specs, reporters, start).forEach(function(script){ %>
        <script src="<%= script %>"></script>
        <% }) %>
      <% }; %>

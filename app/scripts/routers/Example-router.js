@@ -1,17 +1,33 @@
 /*global testBb, Backbone*/
 
-myApp.classes.routers.ExampleRouter = Backbone.Router.extend({
+var ExampleComponent = ctx.get('ExampleComponent');
+var ExampleComponent2 = ctx.get('ExampleComponent');
+var ExampleModel = ctx.get('ExampleModel');
+
+
+var ExampleRouter = Backbone.Router.extend({
+
     routes: {
-        "":                     "showIndex",
-        "test":                 "showTestWorked"
+        "":             "showIndex",
+        "test":         "showTestWorked"
     },
 
     initialize: function() {
-        Backbone.history.start();
+        ctx.register("history").object(Backbone.history);
+        ctx.get("history").start();
     },
 
     showIndex: function () {
-        myApp.views.example.render();
+
+        ExampleComponent.originalSpec.attachToDOM("appwrap",{
+            model:  ExampleModel,
+            title:  "First Instance"
+        });
+
+        ExampleComponent2.originalSpec.attachToDOM("appwrap2",{
+            model:  ExampleModel,
+            title:  "Second Instance"
+        });
     },
 
     showTestWorked: function () {
@@ -20,3 +36,7 @@ myApp.classes.routers.ExampleRouter = Backbone.Router.extend({
     }
 
 });
+
+//ctx
+ctx.register("ExampleRouter", ExampleRouter,{});
+

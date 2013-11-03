@@ -2,12 +2,12 @@
   "name": "backbone-template",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "~1.9.0",
-    "underscore": "~1.4.3",
+    "jquery": "~1.9.1",
     "backbone": "~1.0.0",
     "modernizr": "~2.6.2",
-    "handlebars":"~1.0.0",
-    "foundation" : "~4.3.1"
+    "react": "~0.5.1",
+    "backbone.localStorage": "~1.1.7",
+    "lodash": "~2.2.1"
   },
   "devDependencies": {}
 }
