@@ -1,0 +1,29 @@
+{
+  "name": "PhotoswipeGalleryComponent",
+  "version": "0.0.1",
+  "homepage": "https://github.com/KevCJones/personal-backbone-boilerplates",
+  "authors": [
+    "Kevin Jones <him@kevincjones.co.uk>"
+  ],
+  "description": "ReactJS Component that intergrates Swiper",
+  "main": "SwiperGallery.js",
+  "keywords": [
+    "swiper",
+    "reactjs",
+    "component"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "directory": "",
+  "dependencies": {
+    "photoswipe": "~3.0.3"
+  }
+}

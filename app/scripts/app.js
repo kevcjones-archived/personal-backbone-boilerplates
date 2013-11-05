@@ -6,10 +6,13 @@ window.ctx = di.createContext();
 
 require('.tmp/scripts/templates');
 require('app/components/mixins/**/*.js');
-require('.tmp/components/**/*.js');
+
+//require('app/components/**/*.js'); // dependencies kept within components e.g. vendors it uses // conditional includes
+require('.tmp/components/**/*.js'); //jsx => js files
+
 require('app/scripts/models/**/*');
 require('app/scripts/collections/**/*');
-require('app/scripts/routers/**/*');
+require('.tmp/scripts/routers/**/*');
 
 
 ctx.initialize();

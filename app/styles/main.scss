@@ -1,7 +1,15 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
+$secondary-color: #ccc;
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+}
+
+#wrapper {
+  background-color: $secondary-color;
+  min-width: 960px;
+  margin: 0 auto;
+  width: 66.6%;
 }

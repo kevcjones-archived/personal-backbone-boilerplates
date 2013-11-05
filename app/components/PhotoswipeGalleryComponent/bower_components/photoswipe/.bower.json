@@ -1,0 +1,15 @@
+{
+  "name": "photoswipe",
+  "homepage": "https://github.com/codecomputerlove/PhotoSwipe",
+  "version": "3.0.3",
+  "_release": "3.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.3",
+    "commit": "6e9c587ca0350e18c12b47ec661271d93374d15a"
+  },
+  "_source": "git://github.com/codecomputerlove/PhotoSwipe.git",
+  "_target": "~3.0.3",
+  "_originalSource": "photoswipe",
+  "_direct": true
+}

@@ -243,7 +243,7 @@ module.exports = function (grunt) {
                     ignoreMTime:  false // Default
                 },
                 files: {
-                    '.tmp/components': '<%= yeoman.app %>/components'
+                    '.tmp': '<%= yeoman.app %>'
                 }
             }
         },
