@@ -8,7 +8,8 @@
     "react": "~0.5.1",
     "backbone.localStorage": "~1.1.7",
     "lodash": "~2.2.1",
-    "labjs": "*"
+    "labjs": "*",
+    "photoswipe": "~3.0.3"
   },
   "devDependencies": {}
 }

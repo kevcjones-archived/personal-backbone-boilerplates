@@ -24,7 +24,11 @@
     "matchdep": "~0.2.0",
     "connect-livereload": "~0.3.0",
     "grunt-react": "~0.4.0",
-    "di-lite": "~0.3.3"
+    "di-lite": "~0.3.3",
+    "browserify": "~2.35.1",
+    "grunt-browserify": "~1.2.11",
+    "browserify-shim": "~2.0.8",
+    "debowerify": "~0.3.0"
   },
   "engines": {
     "node": ">=0.8.0"

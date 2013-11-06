@@ -1,5 +1,6 @@
 /*global testBb, Backbone*/
 
+
 var ExampleModel = Backbone.Model.extend({
     localStorage: new Backbone.LocalStorage("ExampleModel"),
     defaults: {
@@ -9,5 +10,6 @@ var ExampleModel = Backbone.Model.extend({
 
 });
 
-ctx.register("ExampleModel", ExampleModel);
+module.exports = ExampleModel;
+//ctx.register("ExampleModel", ExampleModel);
 

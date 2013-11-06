@@ -44,9 +44,9 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp}'
                 ]
             },
-            neuter: {
-                files: ['{.tmp,<%= yeoman.app %>}/scripts/**/*.{js}'],
-                tasks: ['neuter']
+            browserify: {
+                files: ['{.tmp,<%= yeoman.app %>}/scripts/**/*.{js,jsx}'],
+                tasks: ['browserify']
             }
         },
         connect: {
@@ -236,17 +236,17 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        react: {
-            app: {
-                options: {
-                    extension:    'jsx',  // Default,
-                    ignoreMTime:  false // Default
-                },
-                files: {
-                    '.tmp': '<%= yeoman.app %>'
-                }
-            }
-        },
+//        react: {
+//            app: {
+//                options: {
+//                    extension:    'jsx',  // Default,
+//                    ignoreMTime:  false // Default
+//                },
+//                files: {
+//                    '<%= yeoman.app %>': '<%= yeoman.app %>'
+//                }
+//            }
+//        },
         rev: {
             dist: {
                 files: {
@@ -259,12 +259,21 @@ module.exports = function (grunt) {
                 }
             }
         },
-        neuter: {
+
+        browserify: {
             app: {
-                src: '<%= yeoman.app %>/scripts/app.js',
-                dest: '.tmp/scripts/combined-scripts.js'
+                files: {
+                    '.tmp/scripts/combined-scripts.js': ['<%= yeoman.app %>/scripts/app.js']
+                },
+                options: {
+                    transform:[require('grunt-react').browserify,"debowerify"]
+
+                }
+
             }
         }
+
+
 
     });
 
@@ -280,8 +289,8 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'createDefaultTemplate',
-            'react',
-            'neuter:app',
+//            'react',
+            'browserify:app',
             'compass:server',
             'connect:livereload',
             'open',
@@ -292,8 +301,8 @@ module.exports = function (grunt) {
     grunt.registerTask('test-jasmine', [
         'clean:server',
         'createDefaultTemplate',
-        'react',
-        'neuter:app',
+//        'react',
+        'browserify:app',
         'compass',
         'connect:jasmine',
         'jasmine'
@@ -302,8 +311,8 @@ module.exports = function (grunt) {
     grunt.registerTask('test-casperjs', [
         'clean:casperjs',
         'createDefaultTemplate',
-        'react',
-        'neuter:app',
+//        'react',
+        'browserify:app',
         'compass',
         'connect:casperjs',
         'casperjs'
@@ -312,10 +321,10 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'createDefaultTemplate',
-        'react',
+//        'react',
         'compass:dist',
         'useminPrepare',
-        'neuter:app',
+        'browserify:app',
         'imagemin',
         'htmlmin',
         'concat',

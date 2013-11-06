@@ -30,5 +30,5 @@ var BackboneModelReactMixin = {
     }
 };
 
-
-ctx.register("BackboneModelReactMixin").object(BackboneModelReactMixin);
+module.exports = BackboneModelReactMixin;
+//ctx.register("BackboneModelReactMixin").object(BackboneModelReactMixin);

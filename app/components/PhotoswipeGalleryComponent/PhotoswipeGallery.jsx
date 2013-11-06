@@ -1,30 +1,14 @@
 /** @jsx React.DOM */
-/** ctx is context for di-lite */
 
-//var BackboneModelReactMixin = ctx.get('BackboneModelReactMixin');
-var PhotoswipeGallery = null;
-var Photoswipe = null;
-if(!ctx.has("PhotoSwipe"))
-{
-    ///Users/user/Documents/Work/MY/personal-backbone-boilerplates/app/components/PhotoswipeGalleryComponent/bower_components/photoswipe/release/3.0.3/code.photoswipe-3.0.3.min.js
-    $LAB
-        .script("./components/PhotoswipeGalleryComponent/bower_components/photoswipe/release/3.0.3/lib/klass.min.js")
-        .script("./components/PhotoswipeGalleryComponent/bower_components/photoswipe/release/3.0.3/code.photoswipe-3.0.3.js")
-        .wait(function()
-        {
-            ctx.register("PhotoSwipe", window.Code.PhotoSwipe);
-            Photoswipe = window.Code.PhotoSwipe;
-        });
-}else
-{
-    Photoswipe = window.Code.PhotoSwipe;
-}
+if(!Code)
+    if(!Code.PhotoSwipe)
+        throw("Dependency missing - Make sure you have loaded Photoswipe already");
 
 
-PhotoswipeGallery = React.createClass({
+var Photoswipe = window.Code.PhotoSwipe;
 
 
-
+var PhotoswipeGallery = React.createClass({
 
     mixins: [],
 
@@ -34,20 +18,11 @@ PhotoswipeGallery = React.createClass({
         };
     },
 
-    initAndRefresh : function() {
-        console.log("CALLING INIT AND REFRESH");
-        this.state.PSInstance = Photoswipe.attach( this.props.images,
-            {
-                target: this.getDOMNode(),
-                preventHide: true,
-                getImageSource: function(obj){
-                    return obj.url;
-                },
-                getImageCaption: function(obj){
-                    return obj.caption;
-                }
-            });
-        this.state.PSInstance.show(0);
+    render: function() {
+        //jsx in here
+        return(
+            <div id="Gallery" class="gallery" />
+        );
     },
 
     componentDidMount: function() {
@@ -69,19 +44,20 @@ PhotoswipeGallery = React.createClass({
         //
     },
 
-
-    render: function() {
-        //jsx in heere
-        return(
-
-            <div id="Gallery" class="gallery">
-
-            </div>
-
-            );
+    initAndRefresh : function() {
+        this.state.PSInstance = Photoswipe.attach( this.props.images,
+            {
+                target: this.getDOMNode(),
+                preventHide: true,
+                getImageSource: function(obj){
+                    return obj.url;
+                },
+                getImageCaption: function(obj){
+                    return obj.caption;
+                }
+            });
+        this.state.PSInstance.show(0);
     },
-
-
 
     attachToDOM: function(id,props) {
 
@@ -100,7 +76,8 @@ PhotoswipeGallery = React.createClass({
 });
 
 
-ctx.register("PhotoswipeGallery").object(PhotoswipeGallery);
+
+module.exports = PhotoswipeGallery;
 
 
 

@@ -1,19 +1,32 @@
 /** @jsx React.DOM */
 /** ctx is context for di-lite */
 
-var BackboneModelReactMixin = ctx.get('BackboneModelReactMixin');
+//var BackboneModelReactMixin = ctx.get('BackboneModelReactMixin');
+var BackboneModelReactMixin = require('../../../app/components/mixins/BackboneModelReactMixin');
 
 var ExampleComponent = React.createClass({
 
     mixins: [BackboneModelReactMixin],
 
+    getBackboneModels: function() {
+        return [this.props.model];
+    },
+
+    render: function() {
+        return (
+
+            <div class="testStyle">
+                <h2>{this.props.title}</h2>
+                <p onClick={this.handleClick}>Pull the model - {this.props.model.get("counter")}</p>
+                <p onClick={this.handleRedirectClick}>Redirect Test</p>
+            </div>
+
+            );
+    },
+
     componentDidMount: function() {
         // Additional functionality for todomvc: fetch() the collection on init
         this.props.model.fetch();
-    },
-
-    getBackboneModels: function() {
-        return [this.props.model];
     },
 
     handleClick: function(event) {
@@ -29,18 +42,6 @@ var ExampleComponent = React.createClass({
         return false;
     },
 
-    render: function() {
-        return (
-
-            <div class="testStyle">
-                <h2>{this.props.title}</h2>
-                <p onClick={this.handleClick}>Pull the model - {this.props.model.get("counter")}</p>
-                <p onClick={this.handleRedirectClick}>Redirect Test</p>
-            </div>
-
-        );
-    },
-
     attachToDOM: function(id,props) {
         React.renderComponent(
 
@@ -53,7 +54,8 @@ var ExampleComponent = React.createClass({
 });
 
 
-ctx.register("ExampleComponent").object(ExampleComponent);
+module.exports = ExampleComponent;
+//ctx.register("ExampleComponent").object(ExampleComponent);
 
 
 /*
