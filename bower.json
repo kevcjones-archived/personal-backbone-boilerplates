@@ -9,7 +9,12 @@
     "backbone.localStorage": "~1.1.7",
     "lodash": "~2.2.1",
     "labjs": "*",
-    "photoswipe": "~3.0.3"
+    "photoswipe": "~3.0.3",
+    "sass-bootstrap": "~3.0.1",
+    "respond": "~1.3.0",
+    "html5shiv": "~3.7.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    
+  }
 }

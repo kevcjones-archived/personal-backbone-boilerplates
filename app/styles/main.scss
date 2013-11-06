@@ -1,15 +1,14 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-$secondary-color: #ccc;
-
 body {
-  font: 100% $font-stack;
-  color: $primary-color;
+  padding-top: 70px;
+  padding-bottom: 30px;
 }
 
-#wrapper {
-  background-color: $secondary-color;
-  min-width: 960px;
-  margin: 0 auto;
-  width: 66.6%;
+.theme-dropdown .dropdown-menu {
+  display: block;
+  position: static;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
 }
