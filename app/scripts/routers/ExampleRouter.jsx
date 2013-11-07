@@ -9,6 +9,7 @@
 
 var ExampleComponent = require('../../components/ExampleComponent/ExampleComponent.jsx');
 var PhotoswipeGallery = require('../../components/PhotoswipeGalleryComponent/PhotoswipeGallery.jsx');
+var HelloBootstrap = require('../../components/HelloBootstrap/HelloBootstrap.jsx');
 var ExampleModel = require('../models/Example-model');
 
 
@@ -42,11 +43,12 @@ var ExampleRouter = Backbone.Router.extend({
 
         React.renderComponent(
             <div>
+                <HelloBootstrap title="Hello World Demo" />
                 <ExampleComponent model={model} title="First Example" />
                 <ExampleComponent model={model} title="Second Example" />
                 <PhotoswipeGallery images={arr} />
                 <PhotoswipeGallery images={arr} />
-            </div>, document.getElementById("wrapper")
+            </div>, document.getElementById("container")
         );
 
     },

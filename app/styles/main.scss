@@ -1,6 +1,7 @@
 body {
   padding-top: 70px;
   padding-bottom: 30px;
+
 }
 
 .theme-dropdown .dropdown-menu {
@@ -10,5 +11,13 @@ body {
 }
 
 .theme-showcase > p > .btn {
-  margin: 5px 0;
+  margin: 5px 5px 0 5px;
 }
+
+.container{
+  margin-left: auto;
+  margin-right: auto;
+  min-width:800px;
+}
+
+

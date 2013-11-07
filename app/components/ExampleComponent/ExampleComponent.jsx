@@ -17,7 +17,7 @@ var ExampleComponent = React.createClass({
 
             <div class="testStyle">
                 <h2>{this.props.title}</h2>
-                <p onClick={this.handleClick}>Pull the model - {this.props.model.get("counter")}</p>
+                <a href="void(0);" onClick={this.handleClick}>Pull the model - {this.props.model.get("counter")}</a>
                 <p onClick={this.handleRedirectClick}>Redirect Test</p>
             </div>
 
@@ -38,7 +38,7 @@ var ExampleComponent = React.createClass({
     },
 
     handleRedirectClick: function(event) {
-        ctx.get("history").navigate("test", {trigger: true});
+        Backbone.history.navigate("test", {trigger: true});
         return false;
     },
 
