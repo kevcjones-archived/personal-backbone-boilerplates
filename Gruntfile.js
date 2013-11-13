@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                 ]
             },
             browserify: {
-                files: ['{.tmp,<%= yeoman.app %>}/scripts/**/*.{js,jsx}'],
+                files: ['{.tmp,<%= yeoman.app %>}/**/*.{js,jsx}'],
                 tasks: ['browserify']
             }
         },
