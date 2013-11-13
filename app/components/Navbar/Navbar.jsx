@@ -6,10 +6,25 @@ var Navbar = React.createClass({
 
     },
 
+    openTBS : function()
+    {
+        Backbone.history.navigate("tbs", {trigger: true});
+
+    },
+
+    openHome : function()
+    {
+        Backbone.history.navigate("", {trigger: true});
+    },
+
     render: function() {
 
+        var marginBottom = {
+            "margin-bottom":"5px"
+        }
+
         return (
-            <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="navbar navbar-top navbar-inverse" role="navigation" style={marginBottom}>
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -22,8 +37,8 @@ var Navbar = React.createClass({
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
+                            <li ref="homeButton" class="active" onClick={this.openHome}><a href="#">Home</a></li>
+                            <li ref="tbsButton"><a href="#tbs" onClick={this.openTBS}>Twitter</a></li>
                             <li><a href="#other">Other</a></li>
                             <li><a href="#section">Section</a></li>
                             <li class="dropdown">

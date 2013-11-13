@@ -23,6 +23,7 @@ var ExampleRouter = Backbone.Router.extend({
 
     routes: {
         "":             "showIndex",
+        "tbs":          "showTBS",
         "test":         "showTestWorked"
     },
 
@@ -30,6 +31,15 @@ var ExampleRouter = Backbone.Router.extend({
         //ctx.register("history").object(Backbone.history);
         //ctx.get("history").start();
         Backbone.history.start();
+    },
+
+    showTBS: function () {
+        React.renderComponent(
+            <div>
+                <Navbar />
+                <OffCanvasTemplate title="Hello World Demo" />
+            </div>, document.getElementById("appContainer")
+        );
     },
 
     showIndex: function () {
@@ -53,15 +63,11 @@ var ExampleRouter = Backbone.Router.extend({
          <PhotoswipeGallery images={arr} />
          */
 
-//        React.renderComponent(
-//            <div>
-//                <Navbar />
-//                <OffCanvasTemplate title="Hello World Demo" />
-//            </div>, document.getElementById("container")
-//        );
+
 
           React.renderComponent(
-
+                 <div>
+                 <Navbar />
                  <EBookView>
                      <EBookViewChapter>
                          <h1>Page 1</h1>
@@ -161,7 +167,9 @@ var ExampleRouter = Backbone.Router.extend({
                          <br /><br />
                      </EBookViewChapter>
                  </EBookView>
-                , document.body
+                     </div>
+//                , document.body
+                  , document.getElementById("appContainer")
           );
 
     }
