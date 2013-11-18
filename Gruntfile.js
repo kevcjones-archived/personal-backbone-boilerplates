@@ -5,6 +5,8 @@ var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
+var scriptExtractor = require('script-extractor');
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -19,7 +21,7 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'dist'
+        dist: 'cordova_app/www'
     };
 
     grunt.initConfig({
@@ -27,7 +29,7 @@ module.exports = function (grunt) {
         watch: {
             options: {
                 nospawn: true,
-                livereload: true
+                livereload: LIVERELOAD_PORT
             },
             compass: {
                 files: ['<%= yeoman.app %>/**/*.{scss,sass}'],
@@ -60,8 +62,7 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.dist)
                         ];
                     }
                 }
@@ -70,9 +71,8 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'test/jasmine'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.dist)
                         ];
                     }
                 }
@@ -81,9 +81,8 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'test/casperjs'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.dist)
                         ];
                     }
                 }
@@ -98,6 +97,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         open: {
             server: {
                 path: 'http://0.0.0.0:<%= connect.options.port %>'
@@ -105,19 +105,7 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*'],
-            server: '.tmp',
-            casperjs:['.tmp','test/casperjs/screenshots/*']
-        },
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc'
-            },
-            all: [
-                'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/**/*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
-                'test/jasmine/spec/**/*.js'
-            ]
+            casperjs:['.tmp','<%= yeoman.dist %>/*','test/casperjs/screenshots/*']
         },
         jasmine:
         {
@@ -153,7 +141,7 @@ module.exports = function (grunt) {
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>',
-                cssDir: '.tmp',
+                cssDir: '<%= yeoman.dist %>',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
@@ -167,60 +155,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
-            options: {
-                dest: '<%= yeoman.dist %>'
-            }
-        },
-        usemin: {
-            html: ['<%= yeoman.dist %>/**/*.html'],
-            css: ['<%= yeoman.dist %>/styles/**/*.css'],
-            options: {
-                dirs: ['<%= yeoman.dist %>']
-            }
-        },
-        imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/images',
-                    src: '**/*.{png,jpg,jpeg}',
-                    dest: '<%= yeoman.dist %>/images'
-                }]
-            }
-        },
-        cssmin: {
-            dist: {
-                files: {
-                    '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/**/*.css',
-                        '<%= yeoman.app %>/styles/**/*.css'
-                    ]
-                }
-            }
-        },
-        htmlmin: {
-            dist: {
-                options: {
-                    /*removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    //collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true*/
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>',
-                    src: '*.html',
-                    dest: '<%= yeoman.dist %>'
-                }]
-            }
-        },
         copy: {
             dist: {
                 files: [{
@@ -229,41 +163,20 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        '*.{ico,txt}',
+                        '*.{ico,png,txt,xml}',
                         '.htaccess',
-                        'images/**/*.{webp,gif}'
+                        'images/**/*.{webp,gif}',
+                        'bower_components/**/*.{css,js,png,gif,jpg}',
+                        'index.html'
                     ]
                 }]
-            }
-        },
-//        react: {
-//            app: {
-//                options: {
-//                    extension:    'jsx',  // Default,
-//                    ignoreMTime:  false // Default
-//                },
-//                files: {
-//                    '<%= yeoman.app %>': '<%= yeoman.app %>'
-//                }
-//            }
-//        },
-        rev: {
-            dist: {
-                files: {
-                    src: [
-                        '<%= yeoman.dist %>/scripts/**/*.js',
-                        '<%= yeoman.dist %>/styles/**/*.css',
-                        '<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp}',
-                        '<%= yeoman.dist %>/styles/fonts/*'
-                    ]
-                }
             }
         },
 
         browserify: {
             app: {
                 files: {
-                    '.tmp/scripts/combined-scripts.js': ['<%= yeoman.app %>/scripts/app.js']
+                    '<%= yeoman.dist %>/scripts/combined-scripts.js': ['<%= yeoman.app %>/scripts/app.js']
                 },
                 options: {
                     transform:[require('grunt-react').browserify,"debowerify"]
@@ -271,14 +184,106 @@ module.exports = function (grunt) {
                 }
 
             }
-        }
+        },
 
+        cordovacli: {
+            options: {
+                path: 'cordova_app'
+            },
+            create: {
+                options: {
+                    command: 'create',
+                    id: 'nucleuscentral.enterprise.example',
+                    name: 'Example'
+                }
+            },
+            add_platforms: {
+                options: {
+                    command: 'platform',
+                    action: 'add',
+                    platforms: ['ios', 'android']
+                }
+            },
+            add_plugins: {
+                options: {
+                    command: 'plugin',
+                    action: 'add',
+                    plugins: [
+                        'battery-status',
+                        'camera',
+                        'console',
+                        'contacts',
+                        'device',
+                        'device-motion',
+                        'device-orientation',
+                        'dialogs',
+                        'file',
+                        'geolocation',
+                        'globalization',
+                        'inappbrowser',
+                        'media',
+                        'media-capture',
+                        'network-information',
+                        'splashscreen',
+                        'vibration'
+                    ]
+                }
+            },
+            build_ios: {
+                options: {
+                    command: 'build',
+                    platforms: ['ios'],
+                    args: ['--verbose']
+                }
+            },
+            build_android: {
+                options: {
+                    command: 'build',
+                    platforms: ['android'],
+                    args: ['--verbose']
+                }
+            },
+            emulate_android: {
+                options: {
+                    command: 'emulate',
+                    platforms: ['android'],
+                    args: ['--target','Nexus5']
+                }
+            },
+            emulate_ios: {
+                options: {
+                    command: 'emulate',
+                    platforms: ['ios'],
+                    args: ['--verbose']
 
+                }
+            }
+        },
+        processhtml: {
+            options: {
+                data: {
+                    message: 'Hello world!'
+                }
+            },
+            dist: {
+                files: {
+                    '<%= yeoman.dist %>/_index.html': ['<%= yeoman.app %>/index.html']
+                }
+            }
+        },
+        concat: (function(){
+            var sections = scriptExtractor('app/index.html','app/');
+            var concatStep = {};
+            sections.forEach(function(section) {
+                console.log(section);
+                concatStep[section.output] = {
+                    src:section.srcs,
+                    dest:'cordova_app/www/'+section.output
+                }
+            })
+            return concatStep;
+        })()
 
-    });
-
-    grunt.registerTask('createDefaultTemplate', function () {
-        grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
     });
 
     grunt.registerTask('server', function (target) {
@@ -287,21 +292,35 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
-            'clean:server',
-            'createDefaultTemplate',
-//            'react',
+            'clean:dist',
             'browserify:app',
-            'compass:server',
+            'compass:server',            
+            'copy',
+            'processhtml',
+            'concat',
             'connect:livereload',
             'open',
             'watch'
         ]);
     });
 
+    grunt.registerTask('cordova', function (platform) {
+        
+        platform = platform || 'ios';
+
+        grunt.task.run([
+            'clean:dist',
+            'browserify:app',
+            'compass:server',
+            'copy',
+            'processhtml',
+            'cordovacli:emulate_'+platform
+        ]);
+    });
+    
+
     grunt.registerTask('test-jasmine', [
-        'clean:server',
-        'createDefaultTemplate',
-//        'react',
+        'clean:jasmine',
         'browserify:app',
         'compass',
         'connect:jasmine',
@@ -309,35 +328,15 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('test-casperjs', [
-        'clean:casperjs',
-        'createDefaultTemplate',
-//        'react',
+        'clean:dist',
         'browserify:app',
         'compass',
+        'copy',
+        'processhtml',
         'connect:casperjs',
         'casperjs'
     ]);
 
-    grunt.registerTask('build', [
-        'clean:dist',
-        'createDefaultTemplate',
-//        'react',
-        'compass:dist',
-        'useminPrepare',
-        'browserify:app',
-        'imagemin',
-        'htmlmin',
-        'concat',
-        'cssmin',
-        'uglify',
-        'copy',
-        'rev',
-        'usemin'
-    ]);
-
     grunt.registerTask('default', [
-        'jshint',
-        'test',
-        'build'
     ]);
 };

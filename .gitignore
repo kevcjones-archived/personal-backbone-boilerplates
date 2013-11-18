@@ -9,5 +9,4 @@ test/jasmine/bower_components
 .grunt
 test/casperjs/screenshots
 .DS_Store
-app/components/*/bower_components
 

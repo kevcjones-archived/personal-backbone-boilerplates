@@ -24,7 +24,7 @@ var Navbar = React.createClass({
         }
 
         return (
-            <div class="navbar navbar-top navbar-inverse" role="navigation" style={marginBottom}>
+            <div class="navbar navbar-top navbar-top-fixed navbar-inverse" role="navigation" style={marginBottom}>
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

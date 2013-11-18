@@ -69,7 +69,7 @@ var PhotoswipeGallery = React.createClass({
         );
     },
 
-    componentDidUnmount: function() {
+    componentWillUnmount: function() {
         this.state.PSInstance.destroy();
     }
 

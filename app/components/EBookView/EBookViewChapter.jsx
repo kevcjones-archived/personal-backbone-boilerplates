@@ -30,7 +30,15 @@ var EBookViewChapter = React.createClass({
 
 
 
+    },
+
+    componentWillUnmount : function(){
+        this.props.myArticleWrapper.destroy();
     }
+
+
+
+
 
 });
 

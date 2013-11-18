@@ -37,9 +37,15 @@ var EBookView = React.createClass({
 
         this.updateLayout();
 
-        this.props.chapterHScroller.on('scrollStart', function () { console.log('scroll started'); });
-        document.addEventListener("orientationchange", this.updateLayout);
+        //this.props.chapterHScroller.on('scrollStart', function () { console.log('scroll started'); });
+        $(window).on("orientationchange", this.updateLayout);
 
+    },
+
+    componentWillUnmount : function(){
+        //this.props.chapterHScroller.off('scrollStart');
+        this.props.chapterHScroller.destroy();
+        $(window).off("orientationchange");
     },
 
     updateLayout: function() {

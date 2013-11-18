@@ -1,24 +1,41 @@
 /*global backboneTemplate, $, window*/
 
-//window.ctx = di.createContext();
-//
-///* Order and include as you please., this builds you a single file */
-//
-//require('.tmp/scripts/templates');
-//require('app/components/mixins/**/*.js');
-//
-////require('app/components/**/*.js'); // dependencies kept within components e.g. vendors it uses // conditional includes
-//require('.tmp/components/**/*.js'); //jsx => js files
-//
-//require('app/scripts/models/**/*');
-//require('app/scripts/collections/**/*');
-//require('.tmp/scripts/routers/**/*');
-//
-//
-//ctx.initialize();
 
 var router = require('./routers/ExampleRouter.jsx');
-var routerInstance = new router();
+
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();        
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+    	if(!window.cordova)
+    		 app.receivedEvent('skipped-device-ready');
+    	else
+        	document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        
+
+        console.log('Received Event: ' + id);
+        var routerInstance = new router();
+    }
+};
+
+app.initialize();
 
 
 

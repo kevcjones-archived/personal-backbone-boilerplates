@@ -3,9 +3,13 @@
 var OffCanvasTemplate = React.createClass({
 
     componentDidMount: function() {
-        $('[data-toggle=offcanvas]').click(function() {
+        $('[data-toggle=offcanvas]').on('click',function() {
             $('.row-offcanvas').toggleClass('active');
         });
+    },
+
+    componentWillUnmount : function(){
+        $('[data-toggle=offcanvas]').off('click');
     },
 
 

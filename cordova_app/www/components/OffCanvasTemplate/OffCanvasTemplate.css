@@ -1,0 +1,75 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\000035}}
+html {
+  overflow-x: hidden;
+  /* Prevent scroll on narrow devices */
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\000038}}
+body {
+  padding-top: 70px;
+  overflow-x: hidden;
+  /* Prevent scroll on narrow devices */
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000312}}
+footer {
+  padding: 30px 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000317}}
+.container.mainbody {
+  padding-top: 71px;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000326}}
+  .row-offcanvas {
+    position: relative;
+    padding-top: 71px;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000335}}
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%;
+    /* 6 columns */
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000340}}
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%;
+    /* 6 columns */
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000344}}
+  .row-offcanvas-right.active {
+    right: 50%;
+    /* 6 columns */
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000348}}
+  .row-offcanvas-left.active {
+    left: 50%;
+    /* 6 columns */
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/MY\/personal-backbone-boilerplates\/app\/components\/OffCanvasTemplate\/OffCanvasTemplate\.scss}line{font-family:\0000352}}
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    /* 6 columns */
+  }
+}
