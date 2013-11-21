@@ -22,7 +22,11 @@
     "grunt-cordovacli": "~0.2.2",
     "script-extractor": "git+https://github.com/KevCJones/script-extractor.git",
     "grunt-processhtml": "~0.2.5",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-cssimage": "~0.1.0",
+    "grunt-dalek": "~0.2.0",
+    "dalek-browser-chrome": "0.0.8",
+    "dalek-reporter-console": "0.0.6"
   },
   "engines": {
     "node": ">=0.8.0"

@@ -87,6 +87,16 @@ module.exports = function (grunt) {
                     }
                 }
             },
+            dalek: {
+                options: {
+                    middleware: function (connect) {
+                        return [
+                            mountFolder(connect, 'test/dalekjs'),
+                            mountFolder(connect, yeomanConfig.dist)
+                        ];
+                    }
+                }
+            },
             dist: {
                 options: {
                     middleware: function (connect) {
@@ -105,7 +115,8 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*'],
-            casperjs:['.tmp','<%= yeoman.dist %>/*','test/casperjs/screenshots/*']
+            casperjs:['.tmp','<%= yeoman.dist %>/*','test/casperjs/screenshots/*'],
+            dalek:['.tmp','<%= yeoman.dist %>/*','test/dalekjs/screenshots/*']
         },
         jasmine:
         {
@@ -138,6 +149,28 @@ module.exports = function (grunt) {
             },
             files: ['test/casperjs/**/*.js']
         },
+        dalek: {
+            options: {
+              // invoke phantomjs, chrome
+              browser: ['phantomjs'],
+              // generate an html & an jUnit report
+              reporter: ['console','junit'],
+              // don't load config from an Dalekfile
+              dalekfile: false,
+              // specify advanced options (that else would be in your Dalekfile)
+              advanced: {
+                // specify a port for chrome
+                browsers: [{
+                  chrome: {
+                    port: 4000
+                  }
+                }]
+              }
+            },
+            dist: {
+              src: ['test/dalekjs/**/*.js']
+            }
+        },
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>',
@@ -153,23 +186,6 @@ module.exports = function (grunt) {
                 options: {
                     debugInfo: true
                 }
-            }
-        },
-        copy: {
-            dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,png,txt,xml}',
-                        '.htaccess',
-                        'images/**/*.{webp,gif}',
-                        'bower_components/**/*.{css,js,png,gif,jpg}',
-                        'index.html'
-                    ]
-                }]
             }
         },
 
@@ -271,6 +287,42 @@ module.exports = function (grunt) {
                 }
             }
         },
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        '*.{ico,png,txt,xml}',
+                        '.htaccess',
+                        'images/**/*.{webp,gif}',
+                        'bower_components/**/*.{css,js,png,gif,jpg}',
+                        'index.html'
+                    ]
+                }]
+            },
+            backbone: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/bower_components/sass-bootstrap/dist',
+                    dest: '<%= yeoman.dist %>/styles/backbone/',
+                    src: ['js/**','fonts/**']
+                    
+                }]
+            }
+        },
+        cssimage: {
+            options: {
+              imagePath: './tmp',
+              cleanBeforeTask: false,
+              saveOriginal: true
+            },
+            files: {
+              'dest/test.css': ['src/test.css'],
+            },
+          },
         concat: (function(){
             var sections = scriptExtractor('app/index.html','app/');
             var concatStep = {};
@@ -317,6 +369,16 @@ module.exports = function (grunt) {
             'cordovacli:emulate_'+platform
         ]);
     });
+
+    grunt.registerTask('test-dalek',[
+        // 'clean:dist',
+        // 'browserify:app',
+        // 'compass',
+        // 'copy',
+        // 'processhtml',
+        // 'connect:dalek',
+        'dalek'
+    ]);
     
 
     grunt.registerTask('test-jasmine', [
