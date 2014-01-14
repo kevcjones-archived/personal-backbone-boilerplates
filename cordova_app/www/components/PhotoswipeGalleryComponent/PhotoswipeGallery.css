@@ -1,0 +1,172 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\000032}}
+#Gallery {
+  width: 500px;
+  height: 400px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\000039}}
+body.ps-active, body.ps-building, div.ps-active, div.ps-building {
+  background: #000;
+  overflow: hidden;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000314}}
+body.ps-active *, div.ps-active * {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000319}}
+body.ps-active *:focus, div.ps-active *:focus {
+  outline: 0;
+}
+
+/* Document overlay */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000328}}
+div.ps-document-overlay {
+  background: #000;
+}
+
+/* UILayer */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000334}}
+div.ps-uilayer {
+  background: #000;
+  cursor: pointer;
+}
+
+/* Zoom/pan/rotate layer */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000343}}
+div.ps-zoom-pan-rotate {
+  background: #000;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000346}}
+div.ps-zoom-pan-rotate * {
+  display: block;
+}
+
+/* Carousel */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000351}}
+div.ps-carousel-item-loading {
+  background: url(./img/loader.gif) no-repeat center center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000356}}
+div.ps-carousel-item-error {
+  background: url(./img/error.gif) no-repeat center center;
+}
+
+/* Caption */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000363}}
+div.ps-caption {
+  background: #000000;
+  background: -moz-linear-gradient(top, #303130 0%, #000101 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #303130), color-stop(100%, #000101));
+  border-bottom: 1px solid #42403f;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif;
+  text-align: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000373}}
+div.ps-caption * {
+  display: inline;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000376}}
+div.ps-caption-bottom {
+  border-top: 1px solid #42403f;
+  border-bottom: none;
+  min-height: 44px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000383}}
+div.ps-caption-content {
+  padding: 13px;
+  display: block;
+}
+
+/* Toolbar */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\0000391}}
+div.ps-toolbar {
+  background: #000000;
+  background: -moz-linear-gradient(top, #303130 0%, #000101 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #303130), color-stop(100%, #000101));
+  border-top: 1px solid #42403f;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif;
+  text-align: center;
+  height: 44px;
+  display: table;
+  table-layout: fixed;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003104}}
+div.ps-toolbar * {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003109}}
+div.ps-toolbar-top {
+  border-bottom: 1px solid #42403f;
+  border-top: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003115}}
+div.ps-toolbar-close, div.ps-toolbar-previous, div.ps-toolbar-next, div.ps-toolbar-play {
+  cursor: pointer;
+  display: table-cell;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003121}}
+div.ps-toolbar div div.ps-toolbar-content {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0;
+  background-image: url(./img/icons.png);
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003130}}
+div.ps-toolbar-close div.ps-toolbar-content {
+  background-position: 0 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003135}}
+div.ps-toolbar-previous div.ps-toolbar-content {
+  background-position: -44px 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003140}}
+div.ps-toolbar-previous-disabled div.ps-toolbar-content {
+  background-position: -44px -44px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003145}}
+div.ps-toolbar-next div.ps-toolbar-content {
+  background-position: -132px 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003150}}
+div.ps-toolbar-next-disabled div.ps-toolbar-content {
+  background-position: -132px -44px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003155}}
+div.ps-toolbar-play div.ps-toolbar-content {
+  background-position: -88px 0;
+}
+
+/* Hi-res display */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/PhotoswipeGalleryComponent\/PhotoswipeGallery\.scss}line{font-family:\00003165}}
+  div.ps-toolbar div div.ps-toolbar-content {
+    -moz-background-size: 176px 88px;
+    -o-background-size: 176px 88px;
+    -webkit-background-size: 176px 88px;
+    background-size: 176px 88px;
+    background-image: url(./img/icons@2x.png);
+  }
+}

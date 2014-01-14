@@ -1,0 +1,67 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/EBookView\/EBookView\.scss}line{font-family:\000033}}
+.frame {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #FFF;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/EBookView\/EBookView\.scss}line{font-family:\0000311}}
+.chapter {
+  float: left;
+  -webkit-transform: translate3d(0, 0, 0);
+  height: 100%;
+  padding: 0px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/EBookView\/EBookView\.scss}line{font-family:\0000318}}
+.chapterWrapper {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/EBookView\/EBookView\.scss}line{font-family:\0000327}}
+.chapterScroller {
+  height: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/EBookView\/EBookView\.scss}line{font-family:\0000331}}
+.articleWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* Prevent native touch events on Windows */
+  -ms-touch-action: none;
+  /* Prevent the callout on tap-hold and text selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Prevent text resize on orientation change, useful for web-apps */
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/user\/Documents\/Work\/GITS\/backboneReact\/app\/components\/EBookView\/EBookView\.scss}line{font-family:\0000355}}
+.articleScroller {
+  position: absolute;
+  z-index: 1;
+  position: relative;
+  padding: 15px;
+  /* Prevent elements to be highlighted on tap */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* Put the scroller into the HW Compositing layer right from the start */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
